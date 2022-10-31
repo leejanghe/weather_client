@@ -4,11 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Momentum App</title>
+    <title>Weather App</title>
     <link href="/css/index.css" rel="stylesheet" />
+    <link href="/css/reset.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
     <script defer src="/js/main.js"></script>
   </head>
   <body>
-    <h1>test</h1>
+    <div class="main_background">
+      <!-- statusbar common-->
+      <div class="main_statusbar">
+        <p>9:00</p>
+        <img src="./img/Connections.png" alt="connections" />
+      </div>
+
+      <!-- Week Contents-->
+      <div class="week">
+        <div class="week_lotation">
+          <div class="week_lotation_text">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <p>남동구</p>
+          </div>
+          <div class="week_lotation_icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="week_mainview">
+          <div class="week_mainview_text">
+            <span>2022년 10월 17일 | 오전 9 : 27</span>
+            <span>강수량10%</span>
+          </div>
+
+          <div class="week_mainview_img">
+            <img src="./img/cloud_day_white.png" />
+            <p>11º</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hour Contents-->
+      <div class="hour">
+        <h1>저는 2화면입니다.</h1>
+      </div>
+
+      <!-- Week & Hour Btn -->
+      <div>
+        <button class="btn1" onclick="btn1()">버튼1</button>
+        <button class="btn2" onclick="btn2()">버튼2</button>
+      </div>
+    </div>
   </body>
 </html>

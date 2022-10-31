@@ -1,3 +1,141 @@
-h1 {
-  color: red;
+@import url("http://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap");
+
+* {
+  font-family: "NotoSansKR";
 }
+/* css 전역변수 */
+:root {
+  /* main bg */
+  --main-bg-color: #f8f8f8;
+  /* main color */
+  --primary-color: #6593e8;
+  /* sub color */
+  --secondary-color: #222222;
+}
+
+/* 메인 bg 중앙정렬 및 규격 */
+.main_background {
+  background-color: var(--main-bg-color);
+  width: 375px;
+  height: 812px;
+  margin: auto;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* statusbar 공통 */
+.main_statusbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main_statusbar p {
+  padding: 14px 0 0 21.33px;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+.main_statusbar img {
+  padding: 15px 14px 0 0;
+}
+
+/* week css */
+
+.week_lotation {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  margin-top: 34px;
+}
+
+.week_lotation_text {
+  display: flex;
+}
+
+.week_lotation_icon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.week {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.week_mainview {
+  background-color: var(--primary-color);
+  width: 343px;
+  height: 200px;
+  border-radius: 8px;
+  /* display: flex; */
+}
+
+.week_mainview_img {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  color: #fff;
+}
+
+.week_mainview_img img {
+  width: 159.84px;
+  height: 108px;
+  /* margin-top: 53px; */
+  /* margin: 53px 0 39px 20px; */
+}
+
+.week_mainview_img p {
+  font-weight: 700;
+  font-size: 64px;
+  /* line-height: 92.67px; */
+}
+
+.week_mainview_text {
+  color: #ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 200px;
+}
+
+.week_mainview_text span {
+  color: #ffff;
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-end; */
+}
+
+.week_mainview_text p {
+  color: #ffff;
+  /* display: flex;
+    flex-direction: column;
+    align-items: flex-end; */
+}
+
+h1 {
+  color: var(--main-bg-color);
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.box1 {
+  background-color: var(--primary-color);
+
+  height: 700px;
+}
+
+.box2 {
+  background-color: #0f0;
+
+  height: 700px;
+  display: none;
+}
+
+/* body {
+  width: 375px;
+  height: 812px;
+} */
