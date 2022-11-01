@@ -8,8 +8,8 @@
     <link href="/css/index.css" rel="stylesheet" />
     <link href="/css/reset.css" rel="stylesheet" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
     <script defer src="/js/main.js"></script>
   </head>
@@ -23,39 +23,75 @@
 
       <!-- Week Contents-->
       <div class="week">
-        <div class="week_lotation">
-          <div class="week_lotation_text">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <div class="week_location">
+          <div class="week_location_text">
+            <img src="./img/location-pin.svg" />
             <p>남동구</p>
           </div>
-          <div class="week_lotation_icon">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          <div class="week_location_icon">
+            <img src="./img/search.svg" />
+            <img src="./img/more-vertical-outline.svg" />
           </div>
         </div>
 
+        <!-- main view -->
         <div class="week_mainview">
           <div class="week_mainview_text">
             <span>2022년 10월 17일 | 오전 9 : 27</span>
-            <span>강수량10%</span>
+            <span
+              ><img src="./img/water-drop.svg" color="white" />강수량10%</span
+            >
           </div>
 
           <div class="week_mainview_img">
-            <img src="./img/cloud_day_white.png" />
+            <img src="./img/cloud-day_blue.svg" />
             <p>11º</p>
           </div>
+        </div>
+
+        <!-- detail contents -->
+        <div class="week_mainview_detail">
+          <div class="week_mainview_detail_item">
+            <img src="./img/temperature-feels-like.svg" />
+            <p>10ºC</p>
+            <span>체감 온도</span>
+          </div>
+          <div class="week_mainview_detail_item">
+            <img src="./img/humidity-alt.svg" />
+            <p>80%</p>
+            <span>습도</span>
+          </div>
+          <div class="week_mainview_detail_item">
+            <img src="./img/compass.svg" width="32px" />
+            <p>1036 hPa</p>
+            <span>기압</span>
+          </div>
+        </div>
+
+        <!-- weekly weather -->
+        <div class="week_weekly">
+          <h1>주간 날씨</h1>
+          <div class="week-weather"></div>
         </div>
       </div>
 
       <!-- Hour Contents-->
       <div class="hour">
-        <h1>저는 2화면입니다.</h1>
+        <div class="hour_headerText">
+          <h1>남동구 시간별 날씨</h1>
+        </div>
+
+        <div></div>
       </div>
 
       <!-- Week & Hour Btn -->
-      <div>
-        <button class="btn1" onclick="btn1()">버튼1</button>
-        <button class="btn2" onclick="btn2()">버튼2</button>
+      <div class="footer_btn">
+        <button class="btn select" onclick="weekBtnFuc()">Week</button>
+        <button class="btn" onclick="hourBtnFuc()">Hour</button>
+      </div>
+
+      <div class="footer_line">
+        <span></span>
       </div>
     </div>
   </body>
