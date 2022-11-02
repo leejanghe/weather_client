@@ -243,8 +243,9 @@
 }
 
 .week-line {
-  border-bottom: 1px dashed;
+  border-bottom: 0.5px dashed;
   width: 52px;
+  margin-top: 3px;
 }
 
 .week-weather__temp {
@@ -266,7 +267,9 @@
 .week-weather__temp span img {
   margin-right: 2px;
 }
-
+.week-weather__temp.updown svg {
+  color: blue;
+}
 /* hour css */
 /* hour 관련 css입니다. */
 .hour {

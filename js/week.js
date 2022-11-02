@@ -141,8 +141,8 @@ $(document).ready(function () {
             </div>
             <div class="week-line"></div>
             <div class="week-weather__temp">
-            <span><img class="updown"src="/img/triangle-up.svg" />${week.temp}</span>
-            <span><img class="updown"src="/img/triangle-down.svg" />${week.tepmlow}</span>
+            <span><img class="updown" src="/img/triangle-up.svg" />${week.temp}</span>
+            <span><img class="updown" src="/img/triangle-down.svg" />${week.tepmlow}</span>
             </div>
         </div>
         `
@@ -175,5 +175,12 @@ $(document).ready(function () {
   $(".week-weather").mousewheel(function (e, delta) {
     this.scrollLeft -= delta * 40;
     e.preventDefault();
+  });
+});
+
+// 주간 날씨 선택시 triangle-up.svg & triangle-down.svg 아이콘 stroke 흰색으로 변경
+$(document).ready(function () {
+  $(".week-weather__item").click(function () {
+    $(".updown").css("stroke", "#fff");
   });
 });
