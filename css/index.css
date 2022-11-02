@@ -214,6 +214,11 @@
   color: var(--secondary-color);
 }
 
+/* .week-weather__item.active:nth-child(1) {
+  background: var(--primary-color);
+  color: #fff;
+} */
+
 .week-weather__item.active {
   background: var(--primary-color);
   color: #fff;
@@ -271,28 +276,24 @@
 .hour-weather {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 560px;
-  overflow-y: scroll;
+  overflow: scroll;
+  overflow-x: hidden;
   white-space: nowrap;
-  -ms-overflow-style: none;
-  z-index: 9;
 }
 .hour-weather::-webkit-scrollbar {
-  /* width: 0 !important; */
   display: none;
 }
-
-/* 436 + 62 + 62 = 560 */
 
 .hour-weather__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   width: 343px;
-  height: 64px;
+  height: 62px;
+  padding: 5.5px 0 5.5px 0;
   background: #fff;
   border-radius: 8px;
   cursor: pointer;
@@ -308,7 +309,7 @@
   font-weight: 400;
   font-size: 12px;
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .hour-weather__temp {
@@ -321,6 +322,14 @@
   color: #d0d0d0;
   margin-left: 23px;
 }
+
+/* .hour-weather__now {
+  display: none;
+}
+
+.hour-weather__now.active {
+  display: block;
+} */
 
 /* common btn */
 .footer_btn {

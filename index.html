@@ -18,12 +18,13 @@
     <script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
     <script defer src="/js/main.js"></script>
     <script defer src="/js/hour.js"></script>
+    <script defer src="/js/clock.js"></script>
   </head>
   <body>
     <div class="main_background">
       <!-- statusbar common-->
       <div class="main_statusbar">
-        <p>9:00</p>
+        <p class="main_time">9:00</p>
         <img src="./img/Connections.png" alt="connections" />
       </div>
 
@@ -43,7 +44,7 @@
         <!-- main view -->
         <div class="week_mainview">
           <div class="week_mainview_text">
-            <span>2022년 10월 17일 | 오전 9 : 27</span>
+            <span class="week_dataPrint"></span>
             <span
               ><img src="./img/water-drop.svg" color="white" />강수량10%</span
             >
@@ -59,16 +60,19 @@
         <div class="week_mainview_detail">
           <div class="week_mainview_detail_item">
             <img src="./img/temperature-feels-like.svg" />
+            <!-- todo 데이터 바인딩 -->
             <p>10ºC</p>
             <span>체감 온도</span>
           </div>
           <div class="week_mainview_detail_item">
             <img src="./img/humidity-alt.svg" />
+            <!-- todo 데이터 바인딩 -->
             <p>80%</p>
             <span>습도</span>
           </div>
           <div class="week_mainview_detail_item">
             <img src="./img/compass.svg" width="32px" />
+            <!-- todo 데이터 바인딩 -->
             <p>1036 hPa</p>
             <span>기압</span>
           </div>
