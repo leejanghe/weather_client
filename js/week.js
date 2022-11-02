@@ -141,8 +141,8 @@ $(document).ready(function () {
             </div>
             <div class="week-line"></div>
             <div class="week-weather__temp">
-            <span>${week.temp}</span>
-            <span>${week.tepmlow}</span>
+            <span><img class="updown"src="/img/triangle-up.svg" />${week.temp}</span>
+            <span><img class="updown"src="/img/triangle-down.svg" />${week.tepmlow}</span>
             </div>
         </div>
         `
@@ -161,4 +161,19 @@ $(document).ready(function () {
 // 첫뻔째 주간날씨는 선택 된거로
 $(document).ready(function () {
   $(".week-weather__item:first-child").addClass("active");
+});
+
+// 선택된 주간날씨는 triangle아이콘 stroke 흰색으로 변경
+$(document).ready(function () {
+  $(".week-weather__item").click(function () {
+    $(".updown").css("stroke", "#fff");
+  });
+});
+
+// 주간 날씨 스크롤바 없이 마우스 휠 수평 스크롤
+$(document).ready(function () {
+  $(".week-weather").mousewheel(function (e, delta) {
+    this.scrollLeft -= delta * 40;
+    e.preventDefault();
+  });
 });

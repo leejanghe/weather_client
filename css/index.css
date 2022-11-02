@@ -193,10 +193,11 @@
 }
 
 .week-weather {
+  width: 343px;
   display: flex;
-  overflow: scroll;
+  overflow: auto;
   white-space: nowrap;
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none; */
 }
 
 .week-weather::-webkit-scrollbar {
@@ -258,6 +259,12 @@
   margin-top: 8px;
   font-size: 12px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.week-weather__temp span img {
+  margin-right: 2px;
 }
 
 /* hour css */
