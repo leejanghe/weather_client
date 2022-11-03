@@ -39,7 +39,7 @@ $(document).ready(function () {
               <h5>${week.day}</h5>
               </div>
               <div class="week-weather__weather">
-              <img src="${week.icon}.svg" alt="" />
+              <img src="${week.icon}_active.svg" alt="" />
               </div>
               <div class="week-line"></div>
               <div class="week-weather__temp">
