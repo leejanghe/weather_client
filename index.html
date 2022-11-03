@@ -20,11 +20,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
-    <script defer src="/js/clock.js"></script>
-    <script defer src="/js/week.js"></script>
-    <script defer src="/js/hour.js"></script>
-    <script defer src="/js/selectBtn.js"></script>
   </head>
   <body>
     <div class="main_background">
@@ -47,42 +42,43 @@
           </div>
         </div>
 
-        <!-- main view -->
+        <!-- Week view -->
         <div class="week_mainview">
           <div class="week_mainview_text">
             <span class="week_dataPrint"></span>
             <!-- todo 강수량 데이터 바인딩 -->
-            <span
-              ><img src="./img/water-drop.svg" color="white" />강수량10%</span
-            >
+            <span>
+              <img src="./img/water-drop.svg" color="white" />
+              <p id="today_rain"></p>
+            </span>
           </div>
 
           <div class="week_mainview_img">
             <!-- todo 현 날씨에 따른 이미지 데이터 바인딩 -->
             <img src="./img/apiImg/cloud-day_active.svg" />
             <!-- todo 현 기온 데이터 바인딩 -->
-            <p>11º</p>
+            <p id="now_temp"></p>
           </div>
         </div>
 
-        <!-- detail contents -->
+        <!-- Week detail contents -->
         <div class="week_mainview_detail">
           <div class="week_mainview_detail_item">
             <img src="./img/temperature-feels-like.svg" />
             <!-- todo 체감 온도 데이터 바인딩 -->
-            <p>10ºC</p>
+            <p id="now_feel_temp"></p>
             <span>체감 온도</span>
           </div>
           <div class="week_mainview_detail_item">
             <img src="./img/humidity-alt.svg" />
             <!-- todo 습도 데이터 바인딩 -->
-            <p>80%</p>
+            <p id="now_humidity"></p>
             <span>습도</span>
           </div>
           <div class="week_mainview_detail_item">
             <img src="./img/compass.svg" width="32px" />
             <!-- todo 기압 데이터 바인딩 -->
-            <p>1036 hPa</p>
+            <p id="day_pressure"></p>
             <span>기압</span>
           </div>
         </div>
@@ -103,14 +99,21 @@
         <!-- todo 주간 날씨 데이터 바인딩 hour.js참고-->
         <div class="hour-weather"></div>
       </div>
+
       <!-- Week & Hour Btn -->
       <div class="footer_btn">
         <button id="week_btn" class="btn select">Week</button>
         <button id="hour_btn" class="btn">Hour</button>
       </div>
+
       <div class="footer_line">
         <span></span>
       </div>
     </div>
+
+    <script defer src="/js/clock.js"></script>
+    <script defer src="/js/week.js"></script>
+    <script defer src="/js/hour.js"></script>
+    <script defer src="/js/selectBtn.js"></script>
   </body>
 </html>
