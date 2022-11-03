@@ -141,8 +141,8 @@ $(document).ready(function () {
             </div>
             <div class="week-line"></div>
             <div class="week-weather__temp">
-            <span><img class="updown" src="/img/triangle-up.svg" />${week.temp}</span>
-            <span><img class="updown" src="/img/triangle-down.svg" />${week.tepmlow}</span>
+            <span><img id="up"class="updown" src="/img/triangle-up.svg" />${week.temp}</span>
+            <span><img id="down"class="updown" src="/img/triangle-down.svg" />${week.tepmlow}</span>
             </div>
         </div>
         `
@@ -152,35 +152,52 @@ $(document).ready(function () {
 
 // 주간 날씨 선택 jquery
 $(document).ready(function () {
+  $(".week-weather__item:first-child").addClass("active");
+  $(this).find("#up").attr("src", "/img/triangle-up-white.svg");
+  $(this).find("#down").attr("src", "/img/triangle-down-white.svg");
   $(".week-weather__item").click(function () {
+    $(".week-weather__item").each(function () {
+      $(this).find("#up").attr("src", "/img/triangle-up.svg");
+      $(this).find("#down").attr("src", "/img/triangle-down.svg");
+    });
+    $(this).find("#up").attr("src", "/img/triangle-up-white.svg");
+    $(this).find("#down").attr("src", "/img/triangle-down-white.svg");
     $(".week-weather__item").removeClass("active");
     $(this).addClass("active");
   });
 });
 
-// 첫뻔째 주간날씨는 선택 된거로
-$(document).ready(function () {
-  $(".week-weather__item:first-child").addClass("active");
-});
+// 주간 날씨 선택시 triangle-up, triangle-down 아이콘을 triangle-up-white, triangle-down-white로 변경
+// $(document).ready(function () {
+//   $(".week-weather__item").click(function () {
+//     $(".updown").attr("src", "/img/triangle-up.svg");
+//     $(".updown").attr("src", "/img/triangle-down.svg");
+//     $(this).find(".updown").attr("src", "/img/triangle-up-white.svg");
+//     $(this).find(".updown").attr("src", "/img/triangle-down-white.svg");
+//   });
+// });
 
-// 선택된 주간날씨는 triangle아이콘 stroke 흰색으로 변경
-$(document).ready(function () {
-  $(".week-weather__item").click(function () {
-    $(".updown").css("stroke", "#fff");
-  });
-});
+// 주간 날씨 id값 up, down을 가진 img태그의 src를 변경
+// $(document).ready(function () {
+//   $(".week-weather__item").click(function () {
+//     if ($(this).hasClass("active")) {
+//       $(this).find("#up").attr("src", "/img/triangle-up-white.svg");
+//       $(this).find("#down").attr("src", "/img/triangle-down-white.svg");
+//     } else if ($(this).hasClass("active") === false) {
+//       $(this).find("#up").attr("src", "/img/triangle-up.svg");
+//       $(this).find("#down").attr("src", "/img/triangle-down.svg");
+//     }
+//   });
+// });
 
-// 주간 날씨 스크롤바 없이 마우스 휠 수평 스크롤
-$(document).ready(function () {
-  $(".week-weather").mousewheel(function (e, delta) {
-    this.scrollLeft -= delta * 40;
-    e.preventDefault();
-  });
-});
-
-// 주간 날씨 선택시 triangle-up.svg & triangle-down.svg 아이콘 stroke 흰색으로 변경
-$(document).ready(function () {
-  $(".week-weather__item").click(function () {
-    $(".updown").css("stroke", "#fff");
-  });
-});
+// 주간 날씨 클릭한 값만 id값 up, down을 가진 img태그의 src를 변경
+// $(document).ready(function () {
+//   $(".week-weather__item").click(function () {
+//     $(".week-weather__item").each(function () {
+//       $(this).find("#up").attr("src", "/img/triangle-up.svg");
+//       $(this).find("#down").attr("src", "/img/triangle-down.svg");
+//     });
+//     $(this).find("#up").attr("src", "/img/triangle-up-white.svg");
+//     $(this).find("#down").attr("src", "/img/triangle-down-white.svg");
+//   });
+// });
