@@ -87,7 +87,6 @@ $(document).ready(function () {
  */
 const getWeatherData = () => {
   $.ajax({
-    // 회원가입 수행 요청 (100초가 걸린다고 가정해도 밑에 로직이 실행이 됨)
     type: "GET",
     url: `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${appid}&units=${units}&lang=${lang}`,
     async: false,
@@ -181,11 +180,10 @@ const isNowCheck = (dateTxt) => {
   let date = dateTxt.substr(11, 5);
   // 12:00 에서 앞에 시간대만 추출하여서 숫자형으로 바꿔줌 (오후 시간대에는 -12를 하여 PM 형식으로 출력해주기 위함)
   let dateInt = Number(date.substr(0, 2));
-  let nowTime = getNowTime();
+  let nowTime = Number(getNowTime());
 
   // const today = Number();
-  console.log(nowTime);
-  if (nowTime - 3 <= dateInt && nowTime + 3 >= dateInt) {
+  if (dateInt - 3 >= 0 && nowTime - 3 <= dateInt && nowTime + 3 >= dateInt) {
     return true;
   }
   return false;
