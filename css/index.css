@@ -193,11 +193,10 @@
 }
 
 .week-weather {
-  width: 343px;
   display: flex;
-  overflow: auto;
+  overflow: scroll;
   white-space: nowrap;
-  /* -ms-overflow-style: none; */
+  -ms-overflow-style: none;
 }
 
 .week-weather::-webkit-scrollbar {
@@ -219,11 +218,6 @@
   color: var(--secondary-color);
 }
 
-/* .week-weather__item.active:nth-child(1) {
-  background: var(--primary-color);
-  color: #fff;
-} */
-
 .week-weather__item.active {
   background: var(--primary-color);
   color: var(--white-color);
@@ -234,12 +228,10 @@
   font-size: 12px;
   margin-top: 20px;
   margin-bottom: 5px;
-  /* color: var(--secondary-color); */
 }
 
 .week-weather__weather {
   padding: 0 8px 0 8px;
-  /* border-bottom: 1px dashed; */
 }
 
 .week-line {
@@ -267,9 +259,7 @@
 .week-weather__temp span img {
   margin-right: 2px;
 }
-.week-weather__temp.updown svg {
-  color: blue;
-}
+
 /* hour css */
 /* hour 관련 css입니다. */
 .hour {
@@ -403,6 +393,7 @@
   border-radius: 10px;
 }
 
+/* 아이폰 SE 미디어 쿼리 적용 */
 @media (max-height: 667px) {
   .main_background {
     height: 667px;
