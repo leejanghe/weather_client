@@ -42,28 +42,30 @@ $(document).ready(function () {
   const hourWeather = $(".hour-weather");
 
   if (hourWeatherData.length > 0) {
-    hourWeatherData.map((data) =>
-      data.isNow
-        ? hourWeather.append(
-            // 현재 시간대 이면
-            ` <div class="hour-weather__item active">
+    hourWeatherData.map((data) => {
+      if (data.isNow) {
+        hourWeather.append(
+          // 현재 시간대 이면
+          ` <div class="hour-weather__item active">
                 <div class="hour-weather__time">
-                <h5>${data.time}</h5>
-                <span class="hour-weather__now">[Now]</span>
+                <h5 style="font-weight: bolder;" >${data.time}</h5>
+                <span class="hour-weather__now" style="font-weight: bolder;">[Now]</span>
                 </div>
                 <div class="hour-weather__weather">
                 <img src="${data.icon}_active.svg" alt="img" />
                 </div>
                 
                 <div class="hour-weather__temp">
-                <span>${data.tempMax}</span>
-                <span>${data.tepmLow}</span>
+                <span style="font-weight: bolder;">${data.tempMax}º</span>
+                <span style="font-weight: bolder;">${data.tepmLow}º</span>
                 </div>
             </div>`
-          )
-        : hourWeather.append(
-            // 현재 시간대가 아니면
-            ` <div class="hour-weather__item">
+        );
+        $("#id_img").attr("src", `${data.icon}_active.svg`);
+      } else {
+        hourWeather.append(
+          // 현재 시간대가 아니면
+          ` <div class="hour-weather__item">
                 <div class="hour-weather__time">
                 <h5>${data.time}</h5>
                 <span class="hour-weather__now"></span>
@@ -73,12 +75,13 @@ $(document).ready(function () {
                 </div>
                 
                 <div class="hour-weather__temp">
-                <span>${data.tempMax}</span>
-                <span>${data.tepmLow}</span>
+                <span>${data.tempMax}º</span>
+                <span>${data.tepmLow}º</span>
                 </div>
               </div>`
-          )
-    );
+        );
+      }
+    });
   }
 });
 
@@ -99,8 +102,8 @@ const getWeatherData = () => {
           hourWeatherData.push({
             time: dateHandler(element.dt_txt),
             icon: getIconSvg(element.dt_txt, element.weather[0].main),
-            tempMax: element.main.temp_max,
-            tepmLow: element.main.temp_min,
+            tempMax: Math.round(element.main.temp_max),
+            tepmLow: Math.round(element.main.temp_min),
             isNow: isNowCheck(element.dt_txt),
           });
         }
@@ -182,10 +185,10 @@ const isNowCheck = (dateTxt) => {
   let dateInt = Number(date.substr(0, 2));
   let nowTime = Number(getNowTime());
 
-  // const today = Number();
-  if (dateInt - 3 >= 0 && nowTime - 3 <= dateInt && nowTime + 3 >= dateInt) {
+  if (dateInt <= nowTime && nowTime < dateInt + 3) {
     return true;
   }
+
   return false;
 };
 

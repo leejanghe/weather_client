@@ -55,7 +55,7 @@
 
           <div class="week_mainview_img">
             <!-- todo 현 날씨에 따른 이미지 데이터 바인딩 -->
-            <img src="./img/apiImg/cloud-day_active.svg" />
+            <img id="main_tmp_img" src="./img/apiImg/cloud-day_active.svg" />
             <!-- todo 현 기온 데이터 바인딩 -->
             <p id="now_temp"></p>
           </div>
@@ -66,19 +66,21 @@
           <div class="week_mainview_detail_item">
             <img src="./img/temperature-feels-like.svg" />
             <!-- todo 체감 온도 데이터 바인딩 -->
-            <p id="now_feel_temp"></p>
+            <p id="now_feel_temp" style="font-weight: 700"></p>
             <span>체감 온도</span>
           </div>
+          <img src="./img/Dotted-line1.svg" />
           <div class="week_mainview_detail_item">
             <img src="./img/humidity-alt.svg" />
             <!-- todo 습도 데이터 바인딩 -->
-            <p id="now_humidity"></p>
+            <p id="now_humidity" style="font-weight: 700"></p>
             <span>습도</span>
           </div>
+          <img src="./img/Dotted-line1.svg" />
           <div class="week_mainview_detail_item">
-            <img src="./img/compass.svg" width="32px" />
+            <img src="./img/compass.svg" />
             <!-- todo 기압 데이터 바인딩 -->
-            <p id="day_pressure"></p>
+            <p id="day_pressure" style="font-weight: 700"></p>
             <span>기압</span>
           </div>
         </div>

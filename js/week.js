@@ -9,7 +9,7 @@ const dayArray = [
   "월요일",
   "화요일",
   "수요일",
-  "목욕일",
+  "목요일",
   "금요일",
   "토요일",
 ];
@@ -35,16 +35,18 @@ $(document).ready(function () {
         ? weekWeather.append(
             `
           <div class="week-weather__item active">
+          <div class="week-weather__box active">
               <div class="week-weather__day">
-              <h5>${week.day}</h5>
+              <h5 style="font-weight: bolder;">${week.day}</h5>
               </div>
               <div class="week-weather__weather">
               <img src="${week.icon}_active.svg" alt="" />
               </div>
-              <div class="week-line"></div>
+              <img src="./img/Dotted-line-bt_active.svg" />
               <div class="week-weather__temp">
-              <span><img id="up" src="./img/triangle-up-white.svg" />${week.tempMax}</span>
-              <span><img id="down" src="./img/triangle-down-white.svg" />${week.tempLow}</span>
+              <span style="font-weight: bolder;"><img id="up" src="./img/triangle-up-white.svg" />${week.tempMax}°</span>
+              <span style="font-weight: bolder;"><img id="down" src="./img/triangle-down-white.svg" />${week.tempLow}°</span>
+              </div>
               </div>
           </div>
           `
@@ -52,16 +54,18 @@ $(document).ready(function () {
         : weekWeather.append(
             `
           <div class="week-weather__item">
+          <div class="week-weather__box">
               <div class="week-weather__day">
               <h5>${week.day}</h5>
               </div>
               <div class="week-weather__weather">
               <img src="${week.icon}.svg" alt="" />
               </div>
-              <div class="week-line"></div>
+              <img src="./img/Dotted-line-bt.svg" />
               <div class="week-weather__temp">
-              <span><img id="up" src="/img/triangle-up.svg" />${week.tempMax}</span>
-              <span><img id="down" src="/img/triangle-down.svg" />${week.tempLow}</span>
+              <span><img id="up" src="/img/triangle-up.svg" />${week.tempMax}°</span>
+              <span><img id="down" src="/img/triangle-down.svg" />${week.tempLow}°</span>
+              </div>
               </div>
           </div>
           `
@@ -73,19 +77,19 @@ $(document).ready(function () {
 
   // css class제어
   // 주간 날씨 선택
-  // 클릭 했을 때 클릭한 요소들의 색상을 변경하고 싶으면 아래 코드쪽 주석을 푸시면 됩니다.
-  // $(this).find("#up").attr("src", "/img/triangle-up-white.svg");
-  // $(this).find("#down").attr("src", "/img/triangle-down-white.svg");
-  // $(".week-weather__item").click(function () {
-  //   $(".week-weather__item").each(function () {
-  //     $(this).find("#up").attr("src", "/img/triangle-up.svg");
-  //     $(this).find("#down").attr("src", "/img/triangle-down.svg");
-  //   });
+  //   클릭 했을 때 클릭한 요소들의 색상을 변경하고 싶으면 아래 코드쪽 주석을 푸시면 됩니다.
   //   $(this).find("#up").attr("src", "/img/triangle-up-white.svg");
   //   $(this).find("#down").attr("src", "/img/triangle-down-white.svg");
-  //   $(".week-weather__item").removeClass("active");
-  //   $(this).addClass("active");
-  // });
+  //   $(".week-weather__box").click(function () {
+  //     $(".week-weather__box").each(function () {
+  //       $(this).find("#up").attr("src", "/img/triangle-up.svg");
+  //       $(this).find("#down").attr("src", "/img/triangle-down.svg");
+  //     });
+  //     $(this).find("#up").attr("src", "/img/triangle-up-white.svg");
+  //     $(this).find("#down").attr("src", "/img/triangle-down-white.svg");
+  //     $(".week-weather__box").removeClass("active");
+  //     $(this).addClass("active");
+  //   });
 });
 
 /**
@@ -94,41 +98,79 @@ $(document).ready(function () {
  * 시간대를 기준으로 새벽, 아침, 낮, 밤으로 나누어서 데이터를 바인딩 해줬습니다.
  */
 const setTodayInformation = () => {
-  const currentTimeZone = getNowTime();
-  console.log(currentTimeZone);
+  // console.log(currentTimeZone);
   weekData.map((element) => {
     if (element.isToday) {
-      if (0 <= currentTimeZone && currentTimeZone < 5) {
-        // console.log("새벽");
-        $("#now_feel_temp").text(element.feelsLikeObj.eve);
-        $("#now_temp").text(`${element.tempObj.eve}º`);
-        $("#now_humidity").text(`${element.humidity}%`);
-        $("#day_pressure").text(`${element.pressure}hPa`);
-        $("#today_rain").text(`강수량${element.rainPop}%`);
-      } else if (5 <= currentTimeZone && currentTimeZone < 9) {
-        // console.log("아침");
-        $("#now_feel_temp").text(element.feelsLikeObj.morn);
-        $("#now_temp").text(`${element.tempObj.eve}º`);
-        $("#now_humidity").text(`${element.humidity}%`);
-        $("#day_pressure").text(`${element.pressure}hPa`);
-        $("#today_rain").text(`강수량${element.rainPop}%`);
-      } else if (9 <= currentTimeZone && currentTimeZone < 17) {
-        // console.log("낮");
-        $("#now_feel_temp").text(element.feelsLikeObj.day);
-        $("#now_temp").text(`${element.tempObj.eve}º`);
-        $("#now_humidity").text(`${element.humidity}%`);
-        $("#day_pressure").text(`${element.pressure}hPa`);
-        $("#today_rain").text(`강수량${element.rainPop}%`);
-      } else {
-        // console.log("밤");
-        $("#now_feel_temp").text(element.feelsLikeObj.night);
-        $("#now_temp").text(`${element.tempObj.eve}º`);
-        $("#now_humidity").text(`${element.humidity}%`);
-        $("#day_pressure").text(`${element.pressure}hPa`);
-        $("#today_rain").text(`강수량${element.rainPop}%`);
-      }
+      // 공통 코드 제거를 위한 수정 !
+      $("#now_humidity").text(`${Math.round(element.humidity)}%`);
+      $("#day_pressure").text(`${Math.round(element.pressure)}hPa`);
+      $("#today_rain").text(`강수량${Math.round(element.rainPop)}%`);
+      getCurrentTimeZoneData(element);
+
+      // 이전 코드
+      // if (0 <= currentTimeZone && currentTimeZone < 5) {
+      //   // console.log("새벽");
+      //   $("#now_feel_temp").text(element.feelsLikeObj.eve);
+      //   $("#now_temp").text(`${element.tempObj.eve}º`);
+      //   $("#now_humidity").text(`${element.humidity}%`);
+      //   $("#day_pressure").text(`${element.pressure}hPa`);
+      //   $("#today_rain").text(`강수량${element.rainPop}%`);
+      // } else if (5 <= currentTimeZone && currentTimeZone < 9) {
+      //   // console.log("아침");
+      //   $("#now_feel_temp").text(element.feelsLikeObj.morn);
+      //   $("#now_temp").text(`${element.tempObj.morn}º`);
+      //   $("#now_humidity").text(`${element.humidity}%`);
+      //   $("#day_pressure").text(`${element.pressure}hPa`);
+      //   $("#today_rain").text(`강수량${element.rainPop}%`);
+      // } else if (9 <= currentTimeZone && currentTimeZone < 17) {
+      //   // console.log("낮");
+      //   $("#now_feel_temp").text(element.feelsLikeObj.day);
+      //   $("#now_temp").text(`${element.tempObj.day}º`);
+      //   $("#now_humidity").text(`${element.humidity}%`);
+      //   $("#day_pressure").text(`${element.pressure}hPa`);
+      //   $("#today_rain").text(`강수량${element.rainPop}%`);
+      // } else {
+      //   // console.log("밤");
+      //   $("#now_feel_temp").text(element.feelsLikeObj.night);
+      //   $("#now_temp").text(`${element.tempObj.night}º`);
+      //   $("#now_humidity").text(`${element.humidity}%`);
+      //   $("#day_pressure").text(`${element.pressure}hPa`);
+      //   $("#today_rain").text(`강수량${element.rainPop}%`);
+      // }
     }
   });
+};
+
+/**
+ * 실시간 온도 데이터를 제공하지 않아서 현재 시간을 기준으로 비교해서 시간대 별 온도를 바인딩 !
+ * 공통 코드제거를 위한 Extratecd Method !
+ * 0 ~ 5 : 새벽
+ * 5 ~ 9 : 아침
+ * 9 ~ 17 : 낮
+ * 17 ~ 0 : 밤
+ * @param {*} element
+ */
+const getCurrentTimeZoneData = (element) => {
+  // 현재 시간대 정보 가져오기
+  const currentTimeZone = getNowTime();
+
+  if (0 <= currentTimeZone && currentTimeZone < 5) {
+    // console.log("새벽");
+    $("#now_feel_temp").text(`${Math.round(element.feelsLikeObj.eve)}º`);
+    $("#now_temp").text(`${Math.round(element.tempObj.eve)}º`);
+  } else if (5 <= currentTimeZone && currentTimeZone < 9) {
+    // console.log("아침");
+    $("#now_feel_temp").text(`${Math.round(element.feelsLikeObj.morn)}º`);
+    $("#now_temp").text(`${Math.round(element.tempObj.morn)}º`);
+  } else if (9 <= currentTimeZone && currentTimeZone < 17) {
+    // console.log("낮");
+    $("#now_feel_temp").text(`${Math.round(element.feelsLikeObj.day)}º`);
+    $("#now_temp").text(`${Math.round(element.tempObj.day)}º`);
+  } else {
+    // console.log("밤");
+    $("#now_feel_temp").text(`${Math.round(element.feelsLikeObj.night)}º`);
+    $("#now_temp").text(`${Math.round(element.tempObj.night)}º`);
+  }
 };
 
 /**
@@ -141,12 +183,6 @@ const getWeatherWeekData = () => {
     async: false,
   })
     .done(function (response) {
-      //       time: "00:00 PM",
-      // icon: "./img/apiImg/storm-night.svg",
-      // temp: "17ºC",
-      // tepmlow: "9ºC",
-      // isNow: false,
-
       /**
        * 주간 날씨 데이터 핸들링 후 객체 생성 -> 주간 데이터 객체 배열 추가
        */
@@ -156,8 +192,8 @@ const getWeatherWeekData = () => {
           day: getDayLabel(element.dt),
           weather: element.weather[0].main,
           icon: getWeekIconSvg(element.weather[0].main),
-          tempMax: element.temp.max,
-          tempLow: element.temp.min,
+          tempMax: Math.round(element.temp.max), // max 기온 반올림
+          tempLow: Math.round(element.temp.min), // min 기온 반올림
           feelsLikeObj: element.feels_like,
           tempObj: element.temp,
           humidity: element.humidity,
@@ -166,8 +202,6 @@ const getWeatherWeekData = () => {
           isToday: isTodayCheck(element.dt),
         });
       });
-
-      console.log(weekData);
     })
     .fail(function (error) {
       alert(JSON.stringify(error));
@@ -231,7 +265,8 @@ const isTodayCheck = (dt) => {
 const getDayLabel = (dt) => {
   const dateMS = dt * 1000;
   const dayLabel = new Date(dateMS).getDay();
-  console.log(dayLabel);
+  // console.log(dayLabel);
+  console.log(dayArray[dayLabel]);
   return dayArray[dayLabel];
 };
 

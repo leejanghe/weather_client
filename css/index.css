@@ -89,23 +89,32 @@
   width: 343px;
   height: 200px;
   border-radius: 8px;
+  position: relative;
 }
 
 .week_mainview_img {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   color: var(--white-color);
 }
 
 .week_mainview_img img {
-  width: 159.84px;
-  height: 108px;
+  position: absolute;
+  /* width: 159.84px;
+  height: 108px; */
+  width: 260px;
+  height: 176px;
+  left: -30px;
+  top: 20px;
 }
 
 .week_mainview_img p {
   font-weight: 700;
   font-size: 64px;
+  line-height: 90px;
+  position: absolute;
+  width: 103px;
+  height: 93px;
+  left: 230px;
+  top: 86px;
 }
 
 .week_mainview_text {
@@ -132,6 +141,9 @@
   color: var(--white-color);
   padding-right: 20px;
   margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
 }
 
 .week_mainview_text p {
@@ -150,21 +162,12 @@
   border-radius: 8px;
   color: var(--secondary-color);
 }
+
 .week_mainview_detail_item {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.week_mainview_detail_item:nth-child(1) {
-  margin-left: 12px;
-}
-.week_mainview_detail_item:nth-child(2) {
-  padding: 0 44px 0 44px;
-  border-left: 0.5px dashed var(--primary-color);
-  border-right: 0.5px dashed var(--primary-color);
-}
-.week_mainview_detail_item:nth-child(3) {
-  margin-right: 12px;
+  width: 114.33px;
 }
 
 .week_mainview_detail_item p {
@@ -197,6 +200,7 @@
   overflow: scroll;
   white-space: nowrap;
   -ms-overflow-style: none;
+  /* width: 343px; */
 }
 
 .week-weather::-webkit-scrollbar {
@@ -204,12 +208,13 @@
   display: none;
 }
 
-.week-weather__item {
+.week-weather__box {
   margin-top: 12px;
+  box-sizing: initial;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 16px;
+  margin-right: 10px;
   width: 78px;
   height: 162px;
   background: var(--white-color);
@@ -218,7 +223,7 @@
   color: var(--secondary-color);
 }
 
-.week-weather__item.active {
+.week-weather__box.active {
   background: var(--primary-color);
   color: var(--white-color);
 }
@@ -251,7 +256,7 @@
 .week-weather__temp span {
   margin-top: 8px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 400;
   display: flex;
   align-items: center;
 }
@@ -377,9 +382,18 @@
   transition: all 0.3s ease-in-out;
 }
 
+.footer_btn button:nth-child(1) {
+  margin-left: 4px;
+}
+
+.footer_btn button:nth-child(2) {
+  margin-right: 4px;
+}
+
 .btn.select {
   background: var(--secondary-color);
   color: var(--white-color);
+  font-weight: bolder;
   transition: all 0.3s ease-in-out;
 }
 
